@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Smooth K factor visualizer
+		</title>
+		<style>
+			body {
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas style="width: 0px; height: 0px;" id="canvas">
+
+		</canvas>
+	</body>
+	<script>
+		function buildSmoothK(B1) {
+		  let k = 1n;
+		  for (const p of SMALL_PRIMES) {
+		    if (p > B1) break;
+		    let pe = p;
+		    while (pe <= B1) {
+		      k *= p;
+		      pe *= p;
+		    }
+		  }
+		  return k;
+		}
+		var dot = 0n;
+		var canvas = document.getElementById("canvas").getContext("2d");
+		var pixel = canvas.createImageData(1, 1);
+		var number = 0n;
+		var smooth = 0n;
+		setInterval(function() {
+			document.getElementById("canvas").style = `width: ${dot}px; height: ${dot}px;`;
+			pixel.data = [Math.cos(Number(dot)), Math.cos(Number(dot) + Math.PI / 3), Math.cos(Number(dot) - Math.PI / 3), 1];
+			dot++;
+			number = dot;
+			smooth = buildSmoothK(dot);
+			for(let number = dot; number > 1n; number--) {
+				if(smooth % number == 0n) {
+					smooth /= number;
+					canvas.putImageData(imageData, dot, number);
+				}
+			}
+		}, 1000)
+	</script>
+</html>
