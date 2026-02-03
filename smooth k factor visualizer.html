@@ -43,10 +43,10 @@
 			dot++;
 			number = dot;
 			smooth = buildSmoothK(dot);
-			for(let number = dot; number > 1n; number--) {
+			for(let number = dot; number > 1n && smooth > 1n; number--) {
 				if(smooth % number == 0n) {
 					smooth /= number;
-					canvas.putImageData(imageData, dot, number);
+					canvas.putImageData(pixel, dot, number);
 				}
 			}
 		}, 1000)
