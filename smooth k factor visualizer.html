@@ -40,8 +40,11 @@
 		var smooth = 0n;
 		const colors = [
 			[255, 0, 0],
+			[255, 255, 0],
 			[0, 255, 0],
+			[0, 255, 255],
 			[0, 0, 255],
+			[255, 0, 255],
 		];
 		setInterval(function() {
 			pixel.data.set(colors[dot % 3n].concat(255));
