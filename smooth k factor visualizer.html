@@ -7,11 +7,12 @@
 		<style>
 			body {
 				background-color: black;
+				padding: 0px;
 			}
 		</style>
 	</head>
 	<body>
-		<canvas id="canvas">
+		<canvas id="canvas" width="1000" height="1000">
 
 		</canvas>
 	</body>
@@ -38,9 +39,7 @@
 		var number = 0n;
 		var smooth = 0n;
 		setInterval(function() {
-			document.getElementById("canvas").width = Number(dot);
-			document.getElementById("canvas").height = Number(dot);
-			pixel.data = [Math.round(255 * Math.cos(Number(dot))), Math.round(255 * Math.cos(Number(dot) + 2 * Math.PI / 3)), Math.round(255 * Math.cos(Number(dot) - 2 * Math.PI / 3)), 1];
+			pixel.data = [Math.round(255 * Math.cos(Number(dot))), Math.round(255 * Math.cos(Number(dot) + 2 * Math.PI / 3)), Math.round(255 * Math.cos(Number(dot) - 2 * Math.PI / 3)), 255];
 			dot++;
 			number = dot;
 			smooth = buildSmoothK(dot);
