@@ -38,8 +38,13 @@
 		var pixel = canvas.createImageData(1, 1);
 		var number = 0n;
 		var smooth = 0n;
+		const colors = [
+			[255, 0, 0],
+			[0, 255, 0],
+			[0, 0, 255],
+		];
 		setInterval(function() {
-			pixel.data.set(hslToRgb(Number(dot - 1n) * (360 / 2) % 360, 100, 50).concat(255));
+			pixel.data.set(colors[(dot - 1n) % 3n].concat(255));
 			dot++;
 			smooth = buildSmoothK(dot);
 			for(let number = dot; number > 1n && smooth > 1n; number--) {
