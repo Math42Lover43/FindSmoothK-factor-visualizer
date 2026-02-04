@@ -45,7 +45,7 @@
 			for(let number = dot; number > 1n && smooth > 1n; number--) {
 				if(smooth % number == 0n) {
 					smooth /= number;
-					pixel.data.set([255, (255 / spread) * Number(dot) % 256, (255 / spread) * Number(number) % 256, 255]);
+					pixel.data.set([(255 / spread) * Number(dot) % 256, (255 / spread) * Number(number) % 256, 255, 255]);
 					canvas.putImageData(pixel, Number(dot), Number(number));
 				}
 			}
