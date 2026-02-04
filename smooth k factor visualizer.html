@@ -11,7 +11,7 @@
 		</style>
 	</head>
 	<body>
-		<canvas style="width: 0px; height: 0px;" id="canvas">
+		<canvas id="canvas">
 
 		</canvas>
 	</body>
@@ -38,7 +38,8 @@
 		var number = 0n;
 		var smooth = 0n;
 		setInterval(function() {
-			document.getElementById("canvas").style = `width: ${dot}px; height: ${dot}px;`;
+			document.getElementById("canvas").width = Number(dot);
+			document.getElementById("canvas").height = Number(dot);
 			pixel.data = [Math.round(255 * Math.cos(Number(dot))), Math.round(255 * Math.cos(Number(dot) + 2 * Math.PI / 3)), Math.round(255 * Math.cos(Number(dot) - 2 * Math.PI / 3)), 1];
 			dot++;
 			number = dot;
