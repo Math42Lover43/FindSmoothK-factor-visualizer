@@ -38,14 +38,14 @@
 		var pixel = canvas.createImageData(1, 1);
 		var number = 0n;
 		var smooth = 0n;
-		var spread = 1;
+		var spread = 2;
 		setInterval(function() {
 			dot++;
 			smooth = buildSmoothK(dot);
 			for(let number = dot; number > 1n && smooth > 1n; number--) {
 				if(smooth % number == 0n) {
 					smooth /= number;
-					pixel.data.set([255, (255 / spread) * Number(dot) % 256, (255 / spread) * Number(number) % 256]);
+					pixel.data.set([255, (255 / spread) * Number(dot) % 256, (255 / spread) * Number(number) % 256, 255]);
 					canvas.putImageData(pixel, Number(dot), Number(number));
 				}
 			}
