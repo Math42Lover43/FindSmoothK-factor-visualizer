@@ -46,7 +46,7 @@
 			for(let number = dot; number > 1n && smooth > 1n; number--) {
 				if(smooth % number == 0n) {
 					smooth /= number;
-					canvas.putImageData(pixel, dot, number);
+					canvas.putImageData(pixel, Number(dot), Number(number));
 				}
 			}
 		}, 1000)
