@@ -47,7 +47,7 @@
 			[255, 0, 255],
 		];
 		setInterval(function() {
-			pixel.data.set(colors[dot % 3n].concat(255));
+			pixel.data.set(colors[dot % BigInt(colors.length)].concat(255));
 			dot++;
 			smooth = buildSmoothK(dot);
 			for(let number = dot; number > 1n && smooth > 1n; number--) {
