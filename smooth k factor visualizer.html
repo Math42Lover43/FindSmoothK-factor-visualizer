@@ -39,9 +39,8 @@
 		var number = 0n;
 		var smooth = 0n;
 		setInterval(function() {
-			pixel.data = [Math.round(255 * Math.cos(Number(dot))), Math.round(255 * Math.cos(Number(dot) + 2 * Math.PI / 3)), Math.round(255 * Math.cos(Number(dot) - 2 * Math.PI / 3)), 255];
+			pixel.data.set([255, 0, 0, 255]);
 			dot++;
-			number = dot;
 			smooth = buildSmoothK(dot);
 			for(let number = dot; number > 1n && smooth > 1n; number--) {
 				if(smooth % number == 0n) {
