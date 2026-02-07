@@ -59,13 +59,13 @@
 		function buildSmoothK(B1) {
 			var k = 1n;
 			var prime = 1n;
-			k *= BigInt(2 ** Math.floor(Math.log(B1) / Math.log(2)));
+			k *= BigInt(2 ** Math.floor(Math.log(Number(B1)) / Math.log(2)));
 			while(prime ** 2n <= B1) {
 				prime += 2n;
 				while(mod_pow(2n, prime - 1n, prime) != 1n) {
 					prime += 2n;
 				}
-				k *= BigInt(Number(prime) ** Math.floor(Math.log(B1) / Math.log(Number(prime))));
+				k *= BigInt(Number(prime) ** Math.floor(Math.log(Number(B1)) / Math.log(Number(prime))));
 			}
 			while(prime < B1) {
 				prime += 2n;
